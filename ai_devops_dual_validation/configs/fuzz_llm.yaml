@@ -1,0 +1,17 @@
+fuzz_llm:
+  model: gpt-4o-mini           # replace with your available model
+  temperature: 0.7             # empirically good balance for valid & unique seeds
+  chain_prompts: [P2, P1, P3, P4]
+  adversarial:
+    generators: 2
+    evaluators: 1
+  seed_format: ityfuzz_jsonl
+  max_seeds: 200
+  abi_dir: contracts/abi       # where ABI JSON files live
+  examples_dir: contracts/examples  # optional curated sequences
+  selectors:
+    - function  # prioritize function coverage
+    - branch
+  limits:
+    max_sequence_len: 8
+    max_params_per_call: 6

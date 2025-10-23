@@ -1,0 +1,12 @@
+mo_test_select:
+  objectives: [neuron_coverage, diversity, fault_triggerability]
+  optimizer: nsga2
+  budget:
+    pop_size: 64
+    max_gen: 20
+  report:
+    gates:
+      min_neuron_cov: 0.85
+      max_regressions: 0
+  dataset:
+    pool_path: data/candidate_pool.jsonl   # your candidate samples
